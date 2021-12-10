@@ -15,6 +15,13 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->string('name');
+            $table->string('code')->unique();
+            $table->text('description')->nullable();
+            $table->string('profile_picture')->nullable();
+            $table->string('cover')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
